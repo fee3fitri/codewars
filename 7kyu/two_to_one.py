@@ -17,4 +17,7 @@ def longest(a1, a2):
   combined = set(sorted(set1) + sorted(set2))
   return ''.join(sorted(combined))
 
+def longest(a1, a2):
+  return ''.join(sorted(set(a1 + a2)))
+
 print(longest("xyaabbbccccdefww", "xxxxyyyyabklmopq"))
