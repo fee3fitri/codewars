@@ -9,20 +9,30 @@ Examples:
 [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]  =>  [1, 8, 3, 6, 5, 4, 7, 2, 9, 0]
 '''
 
+# def sort_array(source_array):
+#   # Extract the odd number
+#   odds = [n for n in source_array if n % 2]
+
+#   # Sort the odd number in descending order
+#   odds.sort(reverse=True)
+
+#   # Iterate through source array. If element is odd, replace it from odd list
+#   res = []
+#   for n in source_array:
+#     if n % 2: res.append(odds.pop())
+#     else: res.append(n)
+
+#   return res
+
 def sort_array(source_array):
-  # Extract the odd number
+  #Extraxt the odd numbers:
   odds = [n for n in source_array if n % 2]
 
   # Sort the odd number in descending order
-  odds.sort(reverse=True)
+  sorted_odds = sorted(odds,reverse=True)
 
-  # Iterate through source array. If element is odd, replace it from odd list
-  res = []
-  for n in source_array:
-    if n % 2: res.append(odds.pop())
-    else: res.append(n)
-
-  return res
+  # Replace the odd number from the popped sorted_odds. Otherwise keep the number
+  return [sorted_odds.pop() if n % 2 else n for n in source_array ]
 
 
 print(sort_array([7, 1]))
