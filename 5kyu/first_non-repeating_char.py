@@ -9,21 +9,27 @@ If a string contains all repeating characters, it should return an empty string 
 
 '''
 
+# def first_non_repeating_letter(s):
+#     count = {}
+
+#     for char in s:
+#         count[char.lower()] = count.get(char.lower(), 0) + 1
+
+#     singles = [char for char, val in count.items() if val == 1]
+
+#     if singles:
+#       if s.find(singles[0].upper()) > s.find(singles[0]):
+#         return singles[0].upper()
+#       else:
+#         return singles[0]
+#     else:
+#       return ''
+    
 def first_non_repeating_letter(s):
-    count = {}
-
-    for char in s:
-        count[char.lower()] = count.get(char.lower(), 0) + 1
-
-    singles = [char for char, val in count.items() if val == 1]
-
-    if singles:
-      if s.find(singles[0].upper()) > s.find(singles[0]):
-        return singles[0].upper()
-      else:
-        return singles[0]
-    else:
-      return ''
+  lower_s = s.lower()
+  for i, char in enumerate(lower_s):
+    if lower_s.count(char) == 1: return s[i]
+  return ''
 
 print(first_non_repeating_letter('sTreSS'))
 print(first_non_repeating_letter('Go hang a salami, I\'m a lasagna hog!'))
