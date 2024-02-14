@@ -30,7 +30,7 @@ import re
 
 # One liner
 def to_camel_case(text):
-  return text[:1] + text[1:].capitalize().replace('-', '').replace('_', '')
+  return text[:1] + text.title()[1:].replace('-', '').replace('_','')
 
 print(to_camel_case(""))
 print(to_camel_case("the-stealth-warrior"))
