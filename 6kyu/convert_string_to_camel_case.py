@@ -22,12 +22,17 @@ import re
 #   # return ''.join(words)
 #   return ''.join(res)
 
-def to_camel_case(text):
-  words = text.replace('-', ' ').replace('_', ' ').split()
-  if len(words) == 0:
-    return ''
-  return words[0] + ''.join(word.capitalize() for word in words[1:])
+# def to_camel_case(text):
+#   words = text.replace('-', ' ').replace('_', ' ').split()
+#   if len(words) == 0:
+#     return ''
+#   return words[0] + ''.join(word.capitalize() for word in words[1:])
 
+# One liner
+def to_camel_case(text):
+  return text[:1] + text[1:].capitalize().replace('-', '').replace('_', '')
+
+print(to_camel_case(""))
 print(to_camel_case("the-stealth-warrior"))
 print(to_camel_case("The_Stealth_Warrior"))
 print(to_camel_case("The_Stealth-Warrior"))
