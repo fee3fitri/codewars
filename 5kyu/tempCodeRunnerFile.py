@@ -1,2 +1,1 @@
-else:
-          return singles[0]
+filtered
