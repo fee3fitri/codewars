@@ -26,10 +26,15 @@ If a string contains all repeating characters, it should return an empty string 
 #       return ''
     
 def first_non_repeating_letter(s):
-  lower_s = s.lower()
-  for i, char in enumerate(lower_s):
-    if lower_s.count(char) == 1: return s[i]
-  return ''
+  # lower_s = s.lower()
+  # for i, char in enumerate(lower_s):
+  #   if lower_s.count(char) == 1: return s[i]
+  # return ''
+
+  count = dict()
+  
+  for char in s.lower():
+    return char
 
 print(first_non_repeating_letter('sTreSS'))
 print(first_non_repeating_letter('Go hang a salami, I\'m a lasagna hog!'))
