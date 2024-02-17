@@ -8,8 +8,9 @@ Examples
 '''
 
 def find_outlier(integers):
-  odd = list(filter(lambda x: x % 2, integers))
-  if len(odd) == 1:
-      return odd[0]
-  else:
-      return list(filter(lambda x: x % 2 == 0, integers))[0]
+  odd = list(filter(lambda x: x % 2 == 1, integers))
+  even = list(filter(lambda x: x % 2 == 0, integers))
+  return odd[0] if len(odd) == 1 else even[0]
+
+print(find_outlier([2, 4, 0, 100, 4, 11, 2602, 36]))
+print(find_outlier([[160, 3, 1719, 19, 11, 13, -21]]))
