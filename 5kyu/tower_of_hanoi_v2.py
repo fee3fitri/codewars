@@ -38,4 +38,20 @@ def toh(N, fromm, to, aux):
   helper(N, fromm, to, aux)
   return count
 
-print(toh(4, 1, 2, 3))
+def toh_tail_recursive(N, source, destination, auxiliary):
+    """Tail-recursive solution to the Tower of Hanoi problem."""
+    count = 0
+    def helper(N, source, destination, auxiliary):
+        nonlocal count
+        if N >= 1:  
+            helper(N-1, source, auxiliary, destination)
+            print(f"Move disk {N} from rod {source} to rod {destination}")
+            count += 1
+            helper(N-1, auxiliary, destination, source)  
+
+    helper(N, source, destination, auxiliary)
+    return count
+
+# Example usage:
+print(toh_tail_recursive(3, 1, 3, 2))
+# print(toh(3, 1, 3, 2))
