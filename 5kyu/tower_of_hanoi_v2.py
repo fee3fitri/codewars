@@ -51,7 +51,30 @@ def toh_tail_recursive(N, source, destination, auxiliary):
 
     helper(N, source, destination, auxiliary)
     return count
+  
+  
+def toh_memoized(N, source, destination, auxiliary):
+    memo = {}
+    count = 0
+    def toh_util(N, source, destination, auxiliary):
+        nonlocal count
+        if N == 1:
+            print(f"Move disk 1 from rod {source} to rod {destination}")
+            count += 1
+            return
+
+        key = (N, source, destination)
+        if key not in memo:
+            toh_util(N - 1, source, auxiliary, destination)
+            print(f"Move disk {N} from rod {source} to rod {destination}")
+            count += 1
+            toh_util(N - 1, auxiliary, destination, source)
+            memo[key] = None  # We only need to memoize that this calculation has been done
+        
+    toh_util(N, source, destination, auxiliary)
+    return count
 
 # Example usage:
 print(toh_tail_recursive(3, 1, 3, 2))
-# print(toh(3, 1, 3, 2))
+print(toh_memoized(3, 1, 3, 2))
+print(toh(3, 1, 3, 2))
